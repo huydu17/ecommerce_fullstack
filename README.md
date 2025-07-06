@@ -45,7 +45,7 @@ npm install
 
 ## 🔧 Environment Variables
 
-Create `.env` file in root directory:
+Create `.env` file in the `server` directory:
 
 ```env
 MONGODB_URI=your_mongodb_connection_string
@@ -66,8 +66,13 @@ PORT=5000
 ## 🚀 Running the Application
 
 ```bash
-# Run backend
 cd server
+# Seeder Data
+1. To clear existing data
+npm run seed:data-d
+2. To populate the database with sample data
+npm run seed:data
+# Run backend
 npm run dev
 ```
 
