@@ -71,7 +71,7 @@ cd server
 npm run dev
 ```
 
-## 🚀 Screenshots
+## 📷 Screenshots
 ![image](https://github.com/user-attachments/assets/833ec9f2-fd4b-44c3-b02a-a7a85a7d2ec7)
 
 ![image](https://github.com/user-attachments/assets/a6b9e803-c5e6-45bc-9f1b-1231472fbf24)
