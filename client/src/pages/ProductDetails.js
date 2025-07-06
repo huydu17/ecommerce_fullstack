@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Container, Row, Col, Button, Alert, ListGroup } from "react-bootstrap";
 import Star from "../components/common/Star";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,6 @@ import { createReview } from "../apicalls/review";
 import Breadcrumb from "../components/common/Breadcrumb";
 import SuccessToast from "../components/common/SuccessToast";
 import ErrorToast from "../components/common/ErrorToast";
-import parse from "html-react-parser";
 function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
   const { productId } = useParams();
@@ -219,7 +218,7 @@ function ProductDetails() {
         <div className="mt-4">
           <div className="mb-3">
             <h4 className="bg-light p-3">MÔ TẢ CHI TIẾT</h4>
-            <p>{parse(product.description)}</p>
+            {/* <p>{parse(product.description)}</p> */}
           </div>
         </div>
         <div className="mt-4">

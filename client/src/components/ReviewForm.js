@@ -1,17 +1,9 @@
-import React from "react";
-import { Button, Form, Image } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { Rating } from "react-simple-star-rating";
 
 function ReviewForm({ handleSendReview, setWriteReview, writeReview }) {
   return (
     <Form className="mt-2 d-flex align-items-start" onSubmit={handleSendReview}>
-      <Image
-        src="https://via.placeholder.com/40"
-        roundedCircle
-        className="me-2 mt-5"
-        width={50}
-        height={50}
-      />
       <div className="flex-grow-1">
         <div
           style={{

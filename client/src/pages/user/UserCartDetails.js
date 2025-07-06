@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Row,
@@ -8,7 +8,7 @@ import {
   Form,
   Alert,
 } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { validatePhoneNumber } from "../../utils/validation";
 import ShippingAddressForm from "../../components/user/ShippingAddressForm";
 import OrderSummary from "../../components/user/OrderSummary";
@@ -19,8 +19,10 @@ import { createOrder } from "../../apicalls/order";
 import SuccessToast from "../../components/common/SuccessToast";
 import Breadcrumb from "../../components/common/Breadcrumb";
 import BackButton from "../../components/common/BackButton";
+import { completeOrder } from "../../redux/slices/cartSlice";
 
 function UserCartDetails() {
+  const dispatch = useDispatch();
   const [typePay, setTypePay] = useState("COD");
   const [validated, setValidated] = useState(false);
   const [error, setError] = useState(false);
@@ -36,7 +38,6 @@ function UserCartDetails() {
   });
   const [phoneNumberError, setPhoneNumberError] = useState(false);
   const [paypalLoaded, setPaypalLoaded] = useState(false);
-
   const userInfo = useSelector((state) => state.user.userInfo);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const subTotal = useSelector((state) => state.cart.cartSubtotal);
@@ -87,7 +88,7 @@ function UserCartDetails() {
         setError(false);
       } else {
         navigate(`/user/order-confirmation/${response.data._id}`);
-        localStorage.removeItem("cart");
+        dispatch(completeOrder());
         SuccessToast(response.message);
       }
     } catch (err) {
@@ -216,7 +217,7 @@ function UserCartDetails() {
             }, 2000);
           } else {
             navigate(`/user/order-confirmation/${response.data._id}`);
-            localStorage.removeItem("cart");
+            dispatch(completeOrder());
             SuccessToast(response.message);
           }
         } catch (error) {

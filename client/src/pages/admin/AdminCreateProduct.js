@@ -463,6 +463,7 @@ const AdminCreateProduct = () => {
                       type="file"
                       required
                       multiple
+                      accept="image/*"
                       onChange={(e) =>
                         handleUploadImages(
                           e,

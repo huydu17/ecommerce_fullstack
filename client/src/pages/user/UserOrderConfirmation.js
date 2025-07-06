@@ -41,7 +41,7 @@ const UserOrderConfirmation = () => {
       }
     };
     fetchOrder();
-  }, [orderId]);
+  }, [orderId, navigate]);
 
   if (loading) {
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Container,
   Row,
@@ -54,7 +54,6 @@ function ForgotPassword() {
   return (
     <>
       <Breadcrumb items={[{ home: true }, { label: "Quên mật khẩu" }]} />
-
       <Container className="my-5">
         <Row className="justify-content-md-center">
           <Col md={6}>

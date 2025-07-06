@@ -88,8 +88,6 @@ const AdminEditProduct = () => {
   const handleEditorChange = (content) => {
     setDescription(content);
   };
-  console.log("cateogyr", categoryChoosen);
-  console.log("hihi", description);
   const handleSubmit = async (event) => {
     event.preventDefault();
     event.stopPropagation();

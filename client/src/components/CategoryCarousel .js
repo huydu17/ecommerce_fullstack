@@ -23,7 +23,7 @@ const CategoryCarousel = ({ categories }) => {
       </div>
       <Row>
         {categories.length > 0 &&
-          categories.slice(0, 5).map((category, index) => (
+          categories.slice(0, 6).map((category, index) => (
             <LinkContainer
               to={`/product-list/category/${convertToKebabCase(category.name)}`}
               style={{ cursor: "pointer" }}

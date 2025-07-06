@@ -3,12 +3,12 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import compression from 'compression';
-import { appConfig } from './shared/config/appConfig';
 import HTTP_STATUS from 'http-status-codes';
-import { appRoute } from './shared/routes/app.route';
-import { CustomError, IErrorResponse } from './shared/middlewares/globalErrorHandle';
 import fileUpload from 'express-fileupload';
-const PORT = appConfig.PORT;
+import { appConfig } from './config/appConfig';
+import { appRoute } from './routes/app.route';
+import { CustomError, IErrorResponse } from './middlewares/globalErrorHandle';
+const PORT = appConfig.PORT || 5000;
 export class AppServer {
   constructor(private app: Application) {
     this.app = app;

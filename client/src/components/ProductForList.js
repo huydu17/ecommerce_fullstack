@@ -10,13 +10,15 @@ const ProductForList = ({ product }) => {
         style={{ cursor: "pointer", width: "100%" }}
       >
         <Card className="h-100">
-          <Card.Img
-            variant="top"
-            src={product.images}
-            alt={product.name}
-            className="img-fluid custom-img-size"
-            loading="lazy" // Thêm lazy-loading
-          />
+          <div>
+            <Card.Img
+              variant="top"
+              src={product.images}
+              alt={product.name}
+              className="img-fluid custom-img-size"
+              loading="lazy"
+            />
+          </div>
           <Card.Body className="d-flex flex-column">
             <Card.Title className="h5 mb-2">
               <div class="product-name">

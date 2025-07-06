@@ -1,5 +1,5 @@
-import connectDb from './shared/config/connectDb';
-import { appConfig } from './shared/config/appConfig';
+import { appConfig } from './config/appConfig';
+import connectDb from './config/connectDb';
 import { server } from './server';
 class Application {
   public run(): void {

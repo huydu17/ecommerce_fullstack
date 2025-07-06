@@ -50,6 +50,7 @@ export const handleUploadImages = (
   }));
   setPreviewImages((previewImages) => [...previewImages, ...imagesPreviews]);
 };
+
 export const removePreviewImage = (
   index,
   setPreviewImages,
