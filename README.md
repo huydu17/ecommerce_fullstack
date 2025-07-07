@@ -5,9 +5,9 @@ A full-stack eCommerce platform with authentication, product management, and ord
 ## 🚀 Features
 
 - **Authentication**: JWT, Google OAuth, password reset
-- **Product Management**: CRUD operations, categories, attributes, image upload
+- **Product Management**: CRUD operations, categories, attributes, image uploads
 - **Shopping**: Browse, filter, paginate products, shopping cart
-- **Orders**: Create orders, PayPal payment, order status tracking
+- **Orders**: Create orders, PayPal payment, order status tracking (pending, approved, in transit, delivered)
 - **Reviews**: Product reviews and ratings
 - **Admin Panel**: User management, product/category management, order management
 
