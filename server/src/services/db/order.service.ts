@@ -10,6 +10,18 @@ import { BadRequestException } from 'src/middlewares/globalErrorHandle';
 class OrderService {
   public async create(data: IOrderDocuments, currentUser: UserPayload) {
     const { shippingAddress, cartItems, paymentMethod, orderTotal } = data;
+    if (!shippingAddress || !cartItems || !paymentMethod || !orderTotal) {
+      throw new BadRequestException('Vui lòng nhập tất cả thông tin.');
+    }
+    const products = await productService.checkProductStock(cartItems);
+    const outOfStockItems = products.filter((p: any) => p.totalQty < p.requestedQty);
+    if (outOfStockItems.length > 0) {
+      const productNames = outOfStockItems.map((p) => p.name).join(', ');
+      throw new BadRequestException(
+        `Số lượng sản phẩm không đủ: ${productNames}. Số lượng còn lại: ${outOfStockItems.map((p) => p.totalQty).join(', ')}`
+      );
+    }
+
     let ids = cartItems.map((item) => {
       return item.productId;
     });
@@ -23,7 +35,7 @@ class OrderService {
       shippingAddress: { ...shippingAddress, email: currentUser.email },
       cartItems: cartItems
     });
-    if (paymentMethod === 'ONLINE') {
+    if (paymentMethod === 'ONLINE' && order) {
       order.paymentMethod = PaymentMethod.PAY_ONLINE;
       order.paymentStatus = PaymentStatus.PAID;
       order.paidAt = new Date();

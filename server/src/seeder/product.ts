@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 export const productsData = [
-  // Máy tính - Desktop & Laptop (10 products)
   {
     _id: new mongoose.Types.ObjectId('67305f3c417471294b040b20'),
     name: 'Laptop HP 15-fd1045TU 9Z2X1PA (Intel i5, RAM 16GB, SSD 512GB, VGA Intel Arc, Màn Hình 15.6inch FHD, Windows 11, Màu Bạc)',
@@ -11,7 +10,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef01'),
     price: 17490000,
     totalQty: 50,
-    totalSold: 20,
+    totalSold: 0,
     totalReviews: 0,
     averageRating: 4.8,
     attributes: [
@@ -47,7 +46,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef01'),
     price: 18990000,
     totalQty: 30,
-    totalSold: 12,
+    totalSold: 0,
     totalReviews: 5,
     averageRating: 4.7,
     attributes: [
@@ -83,7 +82,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef01'),
     price: 32990000,
     totalQty: 20,
-    totalSold: 8,
+    totalSold: 0,
     totalReviews: 2,
     averageRating: 4.9,
     attributes: [
@@ -115,7 +114,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef01'),
     price: 24990000,
     totalQty: 25,
-    totalSold: 15,
+    totalSold: 0,
     totalReviews: 7,
     averageRating: 4.6,
     attributes: [
@@ -143,7 +142,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef01'),
     price: 28990000,
     totalQty: 40,
-    totalSold: 18,
+    totalSold: 0,
     totalReviews: 4,
     averageRating: 4.8,
     attributes: [
@@ -171,7 +170,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef01'),
     price: 19990000,
     totalQty: 50,
-    totalSold: 22,
+    totalSold: 0,
     totalReviews: 6,
     averageRating: 4.7,
     attributes: [
@@ -201,7 +200,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef02'),
     price: 32990000,
     totalQty: 50,
-    totalSold: 30,
+    totalSold: 0,
     totalReviews: 120,
     averageRating: 4.9,
     attributes: [
@@ -233,7 +232,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef02'),
     price: 35990000,
     totalQty: 40,
-    totalSold: 25,
+    totalSold: 0,
     totalReviews: 90,
     averageRating: 4.8,
     attributes: [
@@ -261,7 +260,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef02'),
     price: 17990000,
     totalQty: 60,
-    totalSold: 40,
+    totalSold: 0,
     totalReviews: 50,
     averageRating: 4.7,
     attributes: [
@@ -289,7 +288,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef02'),
     price: 24990000,
     totalQty: 30,
-    totalSold: 15,
+    totalSold: 0,
     totalReviews: 60,
     averageRating: 4.6,
     attributes: [
@@ -317,7 +316,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef02'),
     price: 57990000,
     totalQty: 20,
-    totalSold: 5,
+    totalSold: 0,
     totalReviews: 10,
     averageRating: 4.8,
     attributes: [
@@ -345,7 +344,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef02'),
     price: 24990000,
     totalQty: 80,
-    totalSold: 45,
+    totalSold: 0,
     totalReviews: 150,
     averageRating: 4.7,
     attributes: [
@@ -370,7 +369,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef03'),
     price: 26990000,
     totalQty: 30,
-    totalSold: 15,
+    totalSold: 0,
     totalReviews: 35,
     averageRating: 4.8,
     attributes: [
@@ -394,7 +393,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef03'),
     price: 46990000,
     totalQty: 25,
-    totalSold: 12,
+    totalSold: 0,
     totalReviews: 20,
     averageRating: 4.9,
     attributes: [
@@ -418,7 +417,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef03'),
     price: 18990000,
     totalQty: 40,
-    totalSold: 18,
+    totalSold: 0,
     totalReviews: 50,
     averageRating: 4.7,
     attributes: [
@@ -442,7 +441,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef03'),
     price: 32990000,
     totalQty: 35,
-    totalSold: 22,
+    totalSold: 0,
     totalReviews: 40,
     averageRating: 4.8,
     attributes: [
@@ -466,7 +465,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef03'),
     price: 13990000,
     totalQty: 50,
-    totalSold: 30,
+    totalSold: 0,
     totalReviews: 60,
     averageRating: 4.6,
     attributes: [
@@ -490,7 +489,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef03'),
     price: 13990000,
     totalQty: 40,
-    totalSold: 25,
+    totalSold: 0,
     totalReviews: 45,
     averageRating: 4.7,
     attributes: [
@@ -516,7 +515,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef04'),
     price: 8990000,
     totalQty: 40,
-    totalSold: 18,
+    totalSold: 0,
     totalReviews: 50,
     averageRating: 4.7,
     attributes: [
@@ -540,7 +539,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef04'),
     price: 12990000,
     totalQty: 30,
-    totalSold: 14,
+    totalSold: 0,
     totalReviews: 30,
     averageRating: 4.6,
     attributes: [
@@ -564,7 +563,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef04'),
     price: 7490000,
     totalQty: 45,
-    totalSold: 20,
+    totalSold: 0,
     totalReviews: 40,
     averageRating: 4.8,
     attributes: [
@@ -588,7 +587,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef04'),
     price: 9990000,
     totalQty: 50,
-    totalSold: 22,
+    totalSold: 0,
     totalReviews: 35,
     averageRating: 4.6,
     attributes: [
@@ -612,7 +611,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef04'),
     price: 23990000,
     totalQty: 20,
-    totalSold: 10,
+    totalSold: 0,
     totalReviews: 15,
     averageRating: 4.9,
     attributes: [
@@ -636,7 +635,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef04'),
     price: 6990000,
     totalQty: 50,
-    totalSold: 25,
+    totalSold: 0,
     totalReviews: 55,
     averageRating: 4.7,
     attributes: [
@@ -661,7 +660,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef05'),
     price: 2490000,
     totalQty: 40,
-    totalSold: 25,
+    totalSold: 0,
     totalReviews: 40,
     averageRating: 4.5,
     attributes: [
@@ -685,7 +684,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef05'),
     price: 3390000,
     totalQty: 35,
-    totalSold: 20,
+    totalSold: 0,
     totalReviews: 30,
     averageRating: 4.7,
     attributes: [
@@ -709,7 +708,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef05'),
     price: 3890000,
     totalQty: 50,
-    totalSold: 18,
+    totalSold: 0,
     totalReviews: 40,
     averageRating: 4.6,
     attributes: [
@@ -733,7 +732,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef05'),
     price: 8500000,
     totalQty: 25,
-    totalSold: 12,
+    totalSold: 0,
     totalReviews: 15,
     averageRating: 4.8,
     attributes: [
@@ -757,7 +756,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef05'),
     price: 4290000,
     totalQty: 60,
-    totalSold: 25,
+    totalSold: 0,
     totalReviews: 50,
     averageRating: 4.7,
     attributes: [
@@ -781,7 +780,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef05'),
     price: 5700000,
     totalQty: 30,
-    totalSold: 15,
+    totalSold: 0,
     totalReviews: 20,
     averageRating: 4.6,
     attributes: [
@@ -807,7 +806,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef06'),
     price: 9900000,
     totalQty: 30,
-    totalSold: 15,
+    totalSold: 0,
     totalReviews: 25,
     averageRating: 4.8,
     attributes: [
@@ -832,7 +831,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef06'),
     price: 4890000,
     totalQty: 40,
-    totalSold: 20,
+    totalSold: 0,
     totalReviews: 30,
     averageRating: 4.7,
     attributes: [
@@ -857,7 +856,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef06'),
     price: 16900000,
     totalQty: 20,
-    totalSold: 12,
+    totalSold: 0,
     totalReviews: 18,
     averageRating: 4.9,
     attributes: [
@@ -882,7 +881,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef06'),
     price: 4590000,
     totalQty: 25,
-    totalSold: 10,
+    totalSold: 0,
     totalReviews: 15,
     averageRating: 4.7,
     attributes: [
@@ -907,7 +906,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef06'),
     price: 5490000,
     totalQty: 30,
-    totalSold: 15,
+    totalSold: 0,
     totalReviews: 20,
     averageRating: 4.8,
     attributes: [
@@ -932,7 +931,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef06'),
     price: 13900000,
     totalQty: 20,
-    totalSold: 8,
+    totalSold: 0,
     totalReviews: 12,
     averageRating: 4.9,
     attributes: [
@@ -959,7 +958,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef07'),
     price: 1390000,
     totalQty: 50,
-    totalSold: 25,
+    totalSold: 0,
     totalReviews: 35,
     averageRating: 4.8,
     attributes: [
@@ -984,7 +983,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef07'),
     price: 2490000,
     totalQty: 40,
-    totalSold: 18,
+    totalSold: 0,
     totalReviews: 20,
     averageRating: 4.7,
     attributes: [
@@ -1009,7 +1008,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef07'),
     price: 3290000,
     totalQty: 30,
-    totalSold: 15,
+    totalSold: 0,
     totalReviews: 22,
     averageRating: 4.9,
     attributes: [
@@ -1034,7 +1033,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef07'),
     price: 4990000,
     totalQty: 15,
-    totalSold: 7,
+    totalSold: 0,
     totalReviews: 12,
     averageRating: 4.6,
     attributes: [
@@ -1059,7 +1058,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef07'),
     price: 1590000,
     totalQty: 60,
-    totalSold: 35,
+    totalSold: 0,
     totalReviews: 40,
     averageRating: 4.8,
     attributes: [
@@ -1084,7 +1083,7 @@ export const productsData = [
     category: new mongoose.Types.ObjectId('6514231234567890abcdef07'),
     price: 2190000,
     totalQty: 25,
-    totalSold: 12,
+    totalSold: 0,
     totalReviews: 18,
     averageRating: 4.7,
     attributes: [

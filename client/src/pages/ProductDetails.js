@@ -186,12 +186,7 @@ function ProductDetails() {
                     variant="outline-secondary"
                     size="sm"
                     onClick={() =>
-                      setQuantity(
-                        Math.min(
-                          quantity + 1,
-                          product.totalQty - product.totalSold
-                        )
-                      )
+                      setQuantity(Math.min(quantity + 1, product.totalQty))
                     }
                   >
                     +
@@ -199,7 +194,7 @@ function ProductDetails() {
                 </div>
                 <span className="text-muted">
                   {" "}
-                  {product.totalQty - product.totalSold} sản phẩm có sẵn
+                  {product.totalQty} sản phẩm có sẵn
                 </span>
               </div>
             </div>

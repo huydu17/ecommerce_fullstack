@@ -46,6 +46,10 @@ export const orderSchema = Joi.object({
   cartItems: Joi.array()
     .items(
       Joi.object({
+        productId: Joi.string().required().messages({
+          'string.empty': 'Id sản phẩm không được để trống',
+          'any.required': 'Id sản phẩm là bắt buộc'
+        }),
         name: Joi.string().required().messages({
           'string.empty': 'Tên sản phẩm không được để trống',
           'any.required': 'Tên sản phẩm là bắt buộc'

@@ -202,6 +202,20 @@ class ProductService {
       });
     });
   }
+  public async checkProductStock(cartItems: any[]) {
+    const productIds = cartItems.map((item) => item.productId);
+    const products = await Product.find({ _id: { $in: productIds } });
+
+    return products.map((product) => {
+      const cartItem = cartItems.find((item) => item.productId === product._id.toString());
+      return {
+        _id: product._id,
+        name: product.name,
+        totalQty: product.totalQty,
+        requestedQty: cartItem.quantity
+      };
+    });
+  }
   public async getAllProducts() {
     return await Product.find({});
   }
