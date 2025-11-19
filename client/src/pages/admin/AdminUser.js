@@ -19,7 +19,6 @@ function AdminUser() {
   const [modalEditUserShow, setModalEditUserShow] = useState(false);
   const [isUpdated, setIsUpdated] = useState(false);
 
-  console.log("l", loading);
   const fetchUsers = async (signal) => {
     try {
       setLoading(!loading);

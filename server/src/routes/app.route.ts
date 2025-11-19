@@ -6,6 +6,7 @@ import { productRoute } from './product.route';
 import { reviewRoute } from './review.route';
 import { orderRoute } from './order.route';
 import { couponRoute } from './coupon.route';
+import { paymentRoute } from './payment.route';
 
 const BASE_PATH = '/api/v1/';
 const USER_PATH = '/api/v1/users/';
@@ -14,6 +15,7 @@ const PRODUCT_PATH = '/api/v1/products/';
 const REVIEW_PATH = '/api/v1/reviews/';
 const ORDER_PATH = '/api/v1/orders/';
 const COUPON_PATH = '/api/v1/coupons/';
+const PAYMENT_PATH = '/api/v1/payments/';
 export const appRoute = (app: Application) => {
   app.use(BASE_PATH, authRoute.routes());
   app.use(USER_PATH, userRoute.routes());
@@ -22,4 +24,5 @@ export const appRoute = (app: Application) => {
   app.use(REVIEW_PATH, reviewRoute.routes());
   app.use(ORDER_PATH, orderRoute.routes());
   app.use(COUPON_PATH, couponRoute.routes());
+  app.use(PAYMENT_PATH, paymentRoute.routes());
 };

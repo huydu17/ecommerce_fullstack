@@ -10,14 +10,10 @@ const proceedFilters = (filters) => {
   if (ratingFromFilter) {
     filterUrl += `&averageRating[gte]=${ratingFromFilter}`;
   } else if (applyPriceRange.min && applyPriceRange.max) {
-    console.log("123");
     filterUrl += `&price[gte]=${applyPriceRange.min}&price[lte]=${applyPriceRange.max}`;
   } else if (applyPriceRange.min) {
-    console.log("1234");
-
     filterUrl += `&price[gte]=${applyPriceRange.min}`;
   } else if (applyPriceRange.max) {
-    console.log("12355");
     filterUrl += `&price[lte]=${applyPriceRange.max}`;
   } else if (sortOptions) {
     filterUrl += `&sort=${sortOptions}`;
@@ -26,7 +22,6 @@ const proceedFilters = (filters) => {
       let val = attrsFromFilter.reduce((acc, item) => {
         let key = encodeURIComponent(item.key);
         let values = item.values.join("-");
-        console.log("acc", acc);
         return acc + key + "-" + values + ",";
       }, "");
       filterUrl += `&attributes=${val}`;
@@ -65,7 +60,6 @@ export const getAllProducts = async (
       search = "";
     }
     const url = `${API_URL}${category}?page=${page}${filtersQuery}${search}`;
-    console.log(url);
     const response = await axios.get(url);
     return response.data;
   } catch (err) {

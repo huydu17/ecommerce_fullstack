@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { authMiddlware } from 'src/middlewares/auth.middleware';
+import { authMiddleware } from 'src/middlewares/auth.middleware';
 import { productController } from '../controllers/product.controller';
 import { asyncWrapper } from 'src/middlewares/globalErrorHandle';
 import { upload } from 'src/middlewares/upload';
@@ -18,26 +18,26 @@ class ProductRoute {
     this.router.get('/list/best-seller', asyncWrapper(productController.getBestSeller));
     this.router.get(
       '/admin/get-all',
-      authMiddlware.isLogin,
-      authMiddlware.checkPermission('admin'),
+      authMiddleware.isLogin,
+      authMiddleware.checkPermission('admin'),
       asyncWrapper(productController.adminGetAll)
     );
 
     this.router.post(
       '/create-product',
-      authMiddlware.isLogin,
+      authMiddleware.isLogin,
       upload,
       validateSchema(createProductSchema),
       asyncWrapper(productController.create)
     );
     this.router.put(
       '/update-product/:id',
-      authMiddlware.isLogin,
+      authMiddleware.isLogin,
       upload,
       validateSchema(updateProductSchema),
       asyncWrapper(productController.update)
     );
-    this.router.delete('/:id', authMiddlware.isLogin, asyncWrapper(productController.delete));
+    this.router.delete('/:id', authMiddleware.isLogin, asyncWrapper(productController.delete));
     return this.router;
   }
 }

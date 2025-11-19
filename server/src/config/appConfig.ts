@@ -21,9 +21,11 @@ class AppConfig {
   public CRYPTR_KEY: string | undefined;
   public GOOGLE_CLIENT_ID: string | undefined;
   public GOOGLE_CLIENT_SECRET: string | undefined;
-  public PAYPAL_CLIENTID: string | undefined;
-  public PAYPAL_SECRET: string | undefined;
-  public PAYPAL_BASE_URL: string | undefined;
+  public VNP_TMN_CODE: string | undefined;
+  public VNP_HASH_SECRET: string | undefined;
+  public VNP_URL: string | undefined;
+  public VNP_RETURN_URL: string | undefined;
+  public VNP_IPN_URL: string | undefined;
 
   constructor() {
     this.PORT = parseInt(process.env.PORT!) || 9000;
@@ -45,9 +47,11 @@ class AppConfig {
     this.CRYPTR_KEY = process.env.CRYPTR_KEY;
     this.GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
     this.GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-    this.PAYPAL_CLIENTID = process.env.PAYPAL_CLIENTID;
-    this.PAYPAL_SECRET = process.env.PAYPAL_SECRET;
-    this.PAYPAL_BASE_URL = process.env.PAYPAL_BASE_URL;
+    this.VNP_TMN_CODE = process.env.VNP_TMN_CODE;
+    this.VNP_HASH_SECRET = process.env.VNP_HASH_SECRET;
+    this.VNP_URL = process.env.VNP_URL;
+    this.VNP_RETURN_URL = process.env.VNP_RETURN_URL;
+    this.VNP_IPN_URL = process.env.VNP_IPN_URL;
   }
   public cloudinary() {
     cloudinary.v2.config({

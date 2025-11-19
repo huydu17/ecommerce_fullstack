@@ -15,7 +15,6 @@ import SuccessToast from "../components/common/SuccessToast";
 import Breadcrumb from "../components/common/Breadcrumb";
 function ResetPassword() {
   const { token } = useParams();
-  console.log(token);
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [matchPassword, setMatchPassword] = useState(true);
@@ -49,7 +48,6 @@ function ResetPassword() {
       confirmPassword
     ) {
       const response = await resetPassword(token, payload);
-      console.log(response);
       if (response.error) {
         setSendCodeState({
           ...sendCodeState,

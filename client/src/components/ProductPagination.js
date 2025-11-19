@@ -2,7 +2,6 @@ import React from "react";
 import { Pagination } from "antd";
 import { useNavigate } from "react-router-dom";
 function ProductPagination({ page, totalPages, categoryName, searchQuery }) {
-  console.log("page", page);
   const navigate = useNavigate();
   const handlePagination = (e) => {
     const category = categoryName ? `/category/${categoryName}` : "";

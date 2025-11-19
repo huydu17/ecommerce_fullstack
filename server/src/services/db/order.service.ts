@@ -37,8 +37,12 @@ class OrderService {
     });
     if (paymentMethod === 'ONLINE' && order) {
       order.paymentMethod = PaymentMethod.PAY_ONLINE;
-      order.paymentStatus = PaymentStatus.PAID;
-      order.paidAt = new Date();
+      if ((data as any).paymentVerified) {
+        order.paymentStatus = PaymentStatus.PAID;
+        order.paidAt = new Date();
+      } else {
+        order.paymentStatus = PaymentStatus.NOT_PAID;
+      }
     }
     await order.save();
     return order;

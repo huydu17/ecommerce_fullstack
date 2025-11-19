@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
 import { authController } from '../controllers/auth.controller';
-import { authMiddlware } from 'src/middlewares/auth.middleware';
+import { authMiddleware } from 'src/middlewares/auth.middleware';
 import {
   changePasswordGoogleSchema,
   emailSchema,
@@ -29,17 +29,17 @@ class AuthRoute {
     );
     this.route.put(
       '/change-password',
-      authMiddlware.isLogin,
+      authMiddleware.isLogin,
       validateSchema(passwordSchema),
       asyncWrapper(authController.changePassword)
     );
     this.route.put(
       '/change-password-with-google',
-      authMiddlware.isLogin,
+      authMiddleware.isLogin,
       validateSchema(changePasswordGoogleSchema),
       asyncWrapper(authController.changePassword)
     );
-    this.route.post('/logout', authMiddlware.isLogin, asyncWrapper(authController.logout));
+    this.route.post('/logout', authMiddleware.isLogin, asyncWrapper(authController.logout));
     return this.route;
   }
 }

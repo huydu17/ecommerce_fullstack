@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
 import { asyncWrapper } from 'src/middlewares/globalErrorHandle';
-import { authMiddlware } from 'src/middlewares/auth.middleware';
+import { authMiddleware } from 'src/middlewares/auth.middleware';
 import { categoryController } from '../controllers/category.controller';
 class CategoryRoute {
   private route: Router;
@@ -8,12 +8,12 @@ class CategoryRoute {
     this.route = express.Router();
   }
   public routes(): Router {
-    this.route.post('/', authMiddlware.isLogin, asyncWrapper(categoryController.createCategory));
+    this.route.post('/', authMiddleware.isLogin, asyncWrapper(categoryController.createCategory));
     this.route.get('/getAll', asyncWrapper(categoryController.getCategories));
-    this.route.get('/:id', authMiddlware.isLogin, asyncWrapper(categoryController.getCategoryById));
-    this.route.put('/:id', authMiddlware.isLogin, asyncWrapper(categoryController.updateCategory));
-    this.route.delete('/:id', authMiddlware.isLogin, asyncWrapper(categoryController.deleteCategory));
-    this.route.put('/update/save-attrs', authMiddlware.isLogin, asyncWrapper(categoryController.saveAttributes));
+    this.route.get('/:id', authMiddleware.isLogin, asyncWrapper(categoryController.getCategoryById));
+    this.route.put('/:id', authMiddleware.isLogin, asyncWrapper(categoryController.updateCategory));
+    this.route.delete('/:id', authMiddleware.isLogin, asyncWrapper(categoryController.deleteCategory));
+    this.route.put('/update/save-attrs', authMiddleware.isLogin, asyncWrapper(categoryController.saveAttributes));
     return this.route;
   }
 }

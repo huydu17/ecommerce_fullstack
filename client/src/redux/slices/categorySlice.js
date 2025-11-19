@@ -18,7 +18,6 @@ export const saveAttribute = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const response = await saveAttr(payload);
-      console.log(response);
       return response.data;
     } catch (error) {
       return rejectWithValue(error);

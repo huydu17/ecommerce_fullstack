@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Row,
@@ -13,13 +13,13 @@ import { validatePhoneNumber } from "../../utils/validation";
 import ShippingAddressForm from "../../components/user/ShippingAddressForm";
 import OrderSummary from "../../components/user/OrderSummary";
 import PaymentOptions from "../../components/user/PaymentOptions";
-import { loadScript } from "@paypal/paypal-js";
 import { useNavigate } from "react-router-dom";
 import { createOrder } from "../../apicalls/order";
 import SuccessToast from "../../components/common/SuccessToast";
 import Breadcrumb from "../../components/common/Breadcrumb";
 import BackButton from "../../components/common/BackButton";
 import { completeOrder } from "../../redux/slices/cartSlice";
+import { createVNPayPayment } from "../../apicalls/payment";
 
 function UserCartDetails() {
   const dispatch = useDispatch();
@@ -38,7 +38,6 @@ function UserCartDetails() {
     note: "",
   });
   const [phoneNumberError, setPhoneNumberError] = useState(false);
-  const paypalButtonsRef = useRef(null);
 
   const userInfo = useSelector((state) => state.user.userInfo);
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -70,103 +69,32 @@ function UserCartDetails() {
       });
     }
   }, [userInfo]);
-
-  useEffect(() => {
-    if (typePay === "ONLINE" && formIsValid) {
-      const initializePayPal = async () => {
-        try {
-          if (paypalButtonsRef.current) {
-            paypalButtonsRef.current.innerHTML = "";
-          }
-          const paypal = await loadScript({
-            clientId:
-              "Aex7h7nCe4QzY6dTJgVyRm09mrwhFru5fwFFeFcZXbWSQoz4QQspT2xqaZjihwycrWBzx1uiRQvDSpiu",
-            currency: "USD",
-            components: "buttons",
-          });
-          paypal
-            .Buttons({
-              createOrder: (data, actions) => {
-                const usdAmount = (subTotal / 23000).toFixed(2);
-                const items = cartItems.map((item) => ({
-                  name: item.name,
-                  unit_amount: {
-                    currency_code: "USD",
-                    value: (item.price / 23000).toFixed(2),
-                  },
-                  quantity: item.quantity,
-                }));
-                const itemTotal = items
-                  .reduce(
-                    (sum, item) =>
-                      sum + parseFloat(item.unit_amount.value) * item.quantity,
-                    0
-                  )
-                  .toFixed(2);
-                return actions.order.create({
-                  purchase_units: [
-                    {
-                      amount: {
-                        currency_code: "USD",
-                        value: usdAmount,
-                        breakdown: {
-                          item_total: {
-                            currency_code: "USD",
-                            value: itemTotal,
-                          },
-                          shipping: {
-                            currency_code: "USD",
-                            value: "0.00",
-                          },
-                          tax_total: {
-                            currency_code: "USD",
-                            value: "0.00",
-                          },
-                          handling: {
-                            currency_code: "USD",
-                            value: "0.00",
-                          },
-                          insurance: {
-                            currency_code: "USD",
-                            value: "0.00",
-                          },
-                          shipping_discount: {
-                            currency_code: "USD",
-                            value: "0.00",
-                          },
-                          discount: {
-                            currency_code: "USD",
-                            value: "0.00",
-                          },
-                        },
-                      },
-                      items: items,
-                    },
-                  ],
-                });
-              },
-              onApprove: async (data, actions) => {
-                try {
-                  await actions.order.capture();
-                  await createNewOrder();
-                } catch (error) {
-                  console.error("Payment error:", error);
-                  alert("Thanh toán không thành công. Vui lòng thử lại.");
-                }
-              },
-              onError: (err) => {
-                alert("PayPal error", err);
-              },
-            })
-            .render(paypalButtonsRef.current);
-        } catch (error) {
-          console.error("Failed to load PayPal", error);
-        }
+  
+  const startVNPay = async () => {
+    try {
+      const payload = {
+        shippingAddress,
+        orderTotal: { itemsCount, cartSubtotal: subTotal },
+        cartItems: cartItems.map((item) => ({
+          productId: item.productId,
+          name: item.name,
+          quantity: item.quantity,
+          price: item.price,
+          image: item.image,
+        })),
       };
-      initializePayPal();
+      const res = await createVNPayPayment(payload);
+      if (res?.paymentUrl) {
+        window.location.href = res.paymentUrl;
+      } else if (res?.error) {
+        setError(res.error);
+      }
+      dispatch(completeOrder());
+    } catch (e) {
+      console.error(e);
+      setError("Không thể khởi tạo thanh toán VNPay");
     }
-  }, [typePay, formIsValid, cartItems, subTotal]);
-
+  };
   const orderPayload = {
     shippingAddress: shippingAddress,
     orderTotal: {
@@ -220,6 +148,8 @@ function UserCartDetails() {
 
     if (typePay === "COD" && formIsValid) {
       await createNewOrder();
+    }else if (typePay === "ONLINE" && formIsValid) {
+      await startVNPay();
     }
   };
 
@@ -254,22 +184,9 @@ function UserCartDetails() {
                   <Card className="p-4" style={{ width: "100%" }}>
                     <OrderSummary cartItems={cartItems} subTotal={subTotal} />
                     <PaymentOptions setTypePay={setTypePay} />
-                    {typePay === "COD" ? (
                       <Button variant="info" className="mt-3" type="submit">
-                        Đặt hàng
+                        Thanh toán
                       </Button>
-                    ) : (
-                      <>
-                        {typePay === "ONLINE" && formIsValid && (
-                          <div ref={paypalButtonsRef} className="pt-2" />
-                        )}
-                        {typePay === "ONLINE" && !formIsValid && (
-                          <Alert variant="danger" className="mt-3">
-                            Vui lòng điền đầy đủ thông tin!
-                          </Alert>
-                        )}
-                      </>
-                    )}
                   </Card>
                 </Col>
               </Row>

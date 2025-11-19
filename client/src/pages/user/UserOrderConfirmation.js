@@ -31,7 +31,6 @@ const UserOrderConfirmation = () => {
               };
             }),
           };
-          console.log(formattedOrder);
           setOrder(formattedOrder);
         }
         setLoading(false);

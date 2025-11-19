@@ -32,7 +32,6 @@ class ProductController {
   }
   public async create(req: Request, res: Response): Promise<void> {
     const fileList: UploadedFile = req.files?.images as UploadedFile;
-    console.log(req.body);
     const product = await productService.create(req.body as IProductPayload, fileList);
     res.status(200).json({
       message: 'Thêm sản phẩm thành công',

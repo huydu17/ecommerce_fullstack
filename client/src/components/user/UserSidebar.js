@@ -37,7 +37,6 @@ function UserSidebar({ children }) {
       onclick: () => navigate("/user/my-orders"),
     },
   ];
-  console.log(location.pathname);
   const activeRoute = location.pathname;
   const getisActiveOrNot = (paths) => {
     if (paths.includes(activeRoute)) {

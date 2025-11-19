@@ -19,7 +19,6 @@ const AdminSidebar = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.userInfo);
-  console.log(user);
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);

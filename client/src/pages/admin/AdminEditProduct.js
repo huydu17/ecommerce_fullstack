@@ -107,7 +107,6 @@ const AdminEditProduct = () => {
       formData.append("attributes", JSON.stringify(attributesForTable));
       formData.append("remainingImages", JSON.stringify(product.images));
       setUpdateState({ ...updateState, isLoading: true });
-      console.log(formData);
       try {
         const response = await updateProduct(product._id, formData);
         if (response.error) {

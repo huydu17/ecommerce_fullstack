@@ -87,7 +87,6 @@ function AdminDashboard() {
     try {
       setLoading(true);
       const response = await getStats();
-      console.log(response);
       if (response.data) {
         setStats(response.data);
         setLoading(false);
@@ -100,7 +99,6 @@ function AdminDashboard() {
   useEffect(() => {
     fetchStats();
   }, []);
-  console.log(stats?.ordersStats);
   return (
     <>
       {loading && <Loading />}

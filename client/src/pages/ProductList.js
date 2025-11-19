@@ -70,7 +70,6 @@ function ProductList() {
           images: product.images[0].url,
         }));
         setProducts(formattedProducts);
-        console.log(response);
         setTotalPages(response.totalPages);
       }
     } catch (error) {

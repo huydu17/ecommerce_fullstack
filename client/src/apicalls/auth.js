@@ -88,7 +88,6 @@ export const forgotPassword = async (email) => {
 
 export const resetPassword = async (token, payload) => {
   try {
-    console.log(payload);
     const response = await axios.post(
       `${API_URL}/reset-password/${token}`,
       payload

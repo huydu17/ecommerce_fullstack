@@ -32,7 +32,6 @@ function UserChangePassword() {
       newPassword,
       confirmPassword,
     };
-    console.log(dataUpdate);
     if (
       event.currentTarget.checkValidity() === true &&
       newPassword &&

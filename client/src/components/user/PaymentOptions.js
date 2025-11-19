@@ -18,7 +18,7 @@ function PaymentOptions({ setTypePay }) {
         id="online"
         name="payment"
         value="ONLINE"
-        label="Thanh toán bằng Paypal"
+        label="Thanh toán VNPay"
         onChange={(e) => setTypePay(e.target.value)}
       />
     </Form>

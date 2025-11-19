@@ -30,7 +30,6 @@ function ForgotPassword() {
     setSendCodeState({ ...sendCodeState, isLoading: true });
     if (event.currentTarget.checkValidity() === true && email) {
       const response = await forgotPassword(email);
-      console.log(response);
       if (response.error) {
         setSendCodeState({
           ...sendCodeState,

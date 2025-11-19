@@ -11,6 +11,7 @@ export interface IOrderDocuments extends Document {
   paymentMethod: string;
   status: OrderStatus;
   deliveredAt: Date;
+  paidAt:Date
 }
 
 interface OrderTotal {

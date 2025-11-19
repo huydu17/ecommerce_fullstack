@@ -29,7 +29,6 @@ function AdminCategory() {
     const fetchCategories = async () => {
       try {
         setLoading(true);
-        console.log("hi", loading);
         const response = await getAllCategories(signal);
         if (response.data) {
           const formattedCategories = response.data.map((category, index) => ({
@@ -78,7 +77,6 @@ function AdminCategory() {
         let response;
         if (isCreated) {
           response = await createCategory(data);
-          console.log(response);
         } else {
           response = await updateCategory(categoryId, data);
         }
