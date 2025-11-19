@@ -26,7 +26,7 @@ A full-stack eCommerce platform with authentication, product management, and ord
 - Bootstrap
 
 **Payment:**
-- PayPal Integration
+- VNPay Integration
 
 ## 📦 Installation
 
